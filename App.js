@@ -14,6 +14,7 @@ import NewCard from './components/NewCard'
 import DeckDetail from './components/DeckDetail'
 import Quiz from './components/Quiz'
 import { colors, commonStyles } from './utils/styles'
+import { setLocalNotification } from './utils/helpers'
 
 const Tabs = TabNavigator({
   DeckList: {
@@ -83,6 +84,10 @@ const FlashCardStatusBar = ({backgroundColor, ...props}) => (
 )
 
 export default class App extends React.Component {
+  componentDidMount() {
+    setLocalNotification()
+  }
+  
   render() {
     return (
       <Provider store={createStore(reducer)}>

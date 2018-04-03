@@ -5,6 +5,10 @@ import Button from './Button'
 import QuizCard from './QuizCard'
 
 import { commonStyles } from '../utils/styles'
+import {
+  clearLocalNotification,
+  setLocalNotification
+} from '../utils/helpers'
 
 export default class Quiz extends Component {
   static navigationOptions = ({
@@ -52,6 +56,9 @@ export default class Quiz extends Component {
       index: 0,
       score: 0
     })
+
+    clearLocalNotification()
+      .then(setLocalNotification)
   }
 
   render() {

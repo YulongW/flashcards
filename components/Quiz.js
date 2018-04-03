@@ -41,10 +41,8 @@ export default class Quiz extends Component {
     })
   }
 
-  navigateToDeckDetail = () => {
-    this.props.navigation.navigate(
-      'DeckList'
-    )
+  goBack = () => {
+    this.props.navigation.goBack()
   }
 
   componentDidMount() {
@@ -88,7 +86,7 @@ export default class Quiz extends Component {
               </Button>
             </View>
             <View style={commonStyles.flex}>
-              <Button onPress={() => this.navigateToDeckDetail()}>
+              <Button onPress={() => this.goBack()}>
                 Back to Deck
               </Button>
             </View>

@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import { View, Text } from 'react-native'
 
 import DeckHeader from './DeckHeader'
 import Button from './Button'
+
 import { commonStyles } from '../utils/styles'
 
-class DeckList extends Component {
+export default class DeckList extends Component {
   static navigationOptions = ({ navigation }) => {
     const { params } = navigation.state
     const deck = params ? params.deck : null
@@ -55,4 +55,3 @@ class DeckList extends Component {
   }
 }
 
-export default connect()(DeckList)

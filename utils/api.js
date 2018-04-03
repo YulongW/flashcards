@@ -37,7 +37,6 @@ export function addDeck(title) {
           })
         )
       }
-      console.log('deck', deck)
       return deck
     })
 }
@@ -45,7 +44,6 @@ export function addDeck(title) {
 export function addCardToDeck(title, card) {
   return getDeck(title)
     .then(deck => {
-      console.log(deck)
       deck.questions.push(card)
       AsyncStorage.mergeItem(
         DECK_DATA_KEY,

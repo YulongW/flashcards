@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native'
 
 import Button from './Button'
 import QuizCard from './QuizCard'
+
 import { commonStyles } from '../utils/styles'
 
 export default class Quiz extends Component {
@@ -59,7 +60,7 @@ export default class Quiz extends Component {
     if (questions.length === 0) {
       return (
         <View style={[commonStyles.flex, commonStyles.center]}>
-          <Text>No question.</Text>
+          <Text style={commonStyles.title}>Please add questions before starting a quiz.</Text>
         </View>
       )
     }
@@ -71,7 +72,7 @@ export default class Quiz extends Component {
       return (
         <View style={commonStyles.flex}>
           <View style={[commonStyles.flex, commonStyles.center]}>
-            <Text>You answered {score} out of {total} questions correctly!</Text>
+            <Text style={commonStyles.title}>You answered {score} out of {total} questions correctly!</Text>
           </View>
           <View style={commonStyles.buttonGroup}>
             <View style={commonStyles.flex}>

@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux';
 import { ScrollView, View, Text, Button, TouchableOpacity, StyleSheet } from 'react-native'
+import { connect } from 'react-redux';
 import { AppLoading } from 'expo'
 import sort from 'lodash.sortby'
 
+import DeckHeader from './DeckHeader'
+
 import { getDeckArray } from '../utils/api'
 import { receiveDecks } from '../actions/deck'
-import DeckHeader from './DeckHeader'
 import { commonStyles } from '../utils/styles'
 
 class DeckList extends Component {
   state = {
-    ready: false,
+    ready: false
   }
   
   componentDidMount() {

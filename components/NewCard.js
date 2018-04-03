@@ -16,6 +16,12 @@ class NewCard extends Component {
     answer: ''
   }
 
+  navigateToDeckDetail = () => {
+    this.props.navigation.navigate(
+      'DeckList'
+    )
+  }
+
   submitNewCard = (deck) => {
     const question = this.state.question.trim()
     const answer = this.state.answer.trim()
@@ -33,6 +39,7 @@ class NewCard extends Component {
         .then((deck) => {
           this.props.addCard(deck, card)
           Alert.alert(`New card has been added to deck ${deck.title}`)
+          this.navigateToDeckDetail()
         })
     }
   }

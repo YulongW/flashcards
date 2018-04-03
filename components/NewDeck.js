@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { KeyboardAvoidingView, Text, TextInput, StyleSheet, Alert } from 'react-native'
+import { KeyboardAvoidingView, Keyboard, Text, TextInput, StyleSheet, Alert } from 'react-native'
 
 import Button from './Button'
 import Input from './Input'
@@ -14,14 +14,22 @@ class NewDeck extends Component {
     text: ''
   }
 
+  navigateToDeckDetail = () => {
+    this.props.navigation.navigate(
+      'DeckList'
+    )
+  }
+
   submitNewDeck = () => {
     const title = this.state.text.trim()
+    Keyboard.dismiss()
     if (title) {
       addDeck(title)
         .then(deck => {
           if (deck) {
             Alert.alert(`Deck ${title} has been created`)
             this.props.addDeck(deck)
+            this.navigateToDeckDetail()
           } else {
             Alert.alert(`The deck with title ${title} exists`)
           }
